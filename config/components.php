@@ -2,6 +2,16 @@
 $routes = require(__DIR__.'/routes.php');
 
 return [
+        'assetManager' => [
+                'bundles' => [
+                    'yii\web\JqueryAsset' => [
+                        'sourcePath' => null,
+                        'js' => [
+                            '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+                        ]
+                    ]
+                ]
+        ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],

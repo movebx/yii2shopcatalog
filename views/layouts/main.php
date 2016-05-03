@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use app\assets\MainAsset;
+use yii\helpers\Url;
 
 MainAsset::register($this);
 ?>
@@ -24,6 +25,13 @@ MainAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+
+<div style="text-align: center"><?= Yii::$app->user->isGuest ? '<a href="'.Url::to(['user/login']).'">login</a>'
+        : 'Hello, '.Yii::$app->user->identity->name.' <a href="'.Url::to(['user/logout']).'">logout</a>' ?>
+</div>
+<div style="text-align: center">
+    <a href="<?= Url::to(['user/register']) ?>">Register</a>
+</div>
 
 <?= $content ?>
 
