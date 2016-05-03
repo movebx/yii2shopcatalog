@@ -14,6 +14,7 @@ return [
         ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['admin', 'moder', 'user']
         ],
         'request' => [
             'cookieValidationKey' => 'AV5Bg7V3XSmZ6arlxAtptWEvGMTi3Y0h',

@@ -8,11 +8,14 @@ use yii\base\Model;
 
 class RegisterForm extends Model
 {
+    const ROLE_USER = 3;
+
     public $name;
     public $password;
     public $password_repeat;
     public $email;
     public $captcha;
+
 
     public function rules()
     {
@@ -37,6 +40,10 @@ class RegisterForm extends Model
             $user->name = $this->name;
             $user->email = $this->email;
             $user->setPassword($this->password);
+            $user->on(User::EVENT_BEFORE_INSERT, function($event)
+            {
+                $event->sender->role = self::ROLE_USER;
+            });
 
             $user->save();
 
