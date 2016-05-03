@@ -25,6 +25,7 @@ return [
         'user' => [
             'identityClass' => 'app\models\identity\User',
             'enableAutoLogin' => true,
+            'loginUrl' => 'user/login',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

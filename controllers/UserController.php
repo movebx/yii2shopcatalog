@@ -5,10 +5,21 @@ namespace app\controllers;
 use Yii;
 use app\models\LoginForm;
 use app\models\RegisterForm;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 class UserController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                /* @TODO: */
+            ]
+        ];
+    }
+
     public function actions()
     {
         return [
