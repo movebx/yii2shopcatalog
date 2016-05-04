@@ -15,6 +15,9 @@ $config = [
     'params' => $params,
     'modules' => [
         'admin' => 'app\modules\admin\AdminModule',
+    ],
+    'aliases' => [
+        '@admin' => '@app/modules/admin'
     ]
 ];
 

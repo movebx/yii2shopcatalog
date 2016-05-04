@@ -1,13 +1,12 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 use yii\helpers\Html;
-use app\assets\MainAsset;
 use yii\helpers\Url;
+use app\modules\admin\assets\CpanelAsset;
 
-MainAsset::register($this);
+CpanelAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,16 +26,9 @@ MainAsset::register($this);
 
 <div class="container">
     <div style="text-align: center"><a href="/">Homee</a></div>
-    <div style="text-align: center"><?= Yii::$app->user->isGuest ? '<a href="'.Url::to(['/user/login']).'">login</a>'
-            : 'Hello, '.Yii::$app->user->identity->name.' <a href="'.Url::to(['/user/logout']).'">logout</a>' ?>
-    </div>
-    <div style="text-align: center">
-        <a href="<?= Url::to(['/user/register']) ?>">Register</a>
-    </div>
 
 
     <?= $content ?>
-
 </div>
 
 <?php $this->endBody() ?>
