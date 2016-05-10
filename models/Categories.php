@@ -8,6 +8,11 @@ use yii\db\ActiveRecord;
 class Categories extends ActiveRecord
 {
 
+    static public function getIndexedCategories()
+    {
+        return static::find()->select(['c_name', 'id'])
+            ->indexBy('id')->column();
+    }
 
 
     public function getProducts()

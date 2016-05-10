@@ -10,10 +10,10 @@ $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 
 echo $form->field($model, 'p_name')->textInput();
 echo $form->field($model, 'description')->textarea(['rows' => 15]);
-echo $form->field($model, 'category')->dropDownList(Categories::find()->select(['c_name', 'id'])
-    ->indexBy('id')->column(), ['prompt' => 'Выберите категорию']);
+echo $form->field($model, 'category')->dropDownList(Categories::getIndexedCategories(),
+    ['prompt' => 'Выберите категорию']);
 
-echo $form->field($model, 'images[]')->fileInput(['multiple' => true]);
+echo $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']);
 
 echo Html::submitButton('Добавить', ['class' => 'btn btn-success']);
 
